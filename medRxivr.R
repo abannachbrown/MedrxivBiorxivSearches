@@ -65,5 +65,5 @@ mx_results <- mx_search(data = medrxiv_data,
 ### print the reuslts to a csv file
 write.csv(mx_results, file="medrxivResults.csv")
 
-## Download the results PDFs
-mx_download(mx_results, directory = "pdf/", create = TRUE)
+## Download the results PDFs - does not work with biorxiv DOIs as preffix URL is specified to medrxiv.org
+# mx_download(mx_results, directory = "pdf/", create = TRUE)
