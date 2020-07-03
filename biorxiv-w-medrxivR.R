@@ -118,10 +118,18 @@ resultsBiorXiv <- mx_search(data = bx_data,
                             fields = c("title", "abstract"), 
                             deduplicate = TRUE)
 
-### print the reuslts to a csv file
-write.csv(resultsBiorXiv, file="biorxivResults.csv")
 
 
 
 ## Download the results PDFs - does not work with biorxiv DOIs as preffix URL is specified to medrxiv.org
 # mx_download(resultsBiorXiv, directory = "pdf/", create = TRUE)
+
+# change the preffix 
+library(stringr)
+resultsBiorXiv$link_pdf <- str_replace_all(resultsBiorXiv$link_pdf, "medrxiv", "biorxiv")
+resultsBiorXiv$link_page <- str_replace_all(resultsBiorXiv$link_page, "medrxiv", "biorxiv")
+
+mx_download(resultsBiorXiv, directory = "pdf/", create = TRUE)
+
+### print the reuslts to a csv file
+write.csv(resultsBiorXiv, file="biorxivResults.csv")
