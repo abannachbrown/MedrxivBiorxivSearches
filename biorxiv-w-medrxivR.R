@@ -132,4 +132,5 @@ resultsBiorXiv$link_page <- str_replace_all(resultsBiorXiv$link_page, "medrxiv",
 mx_download(resultsBiorXiv, directory = "pdf/", create = TRUE)
 
 ### print the reuslts to a csv file
-write.csv(resultsBiorXiv, file="biorxivResults.csv")
+## csv2 for german excel that has ';' as seperator
+write.csv2(resultsBiorXiv, file="biorxivResults.csv", row.names = F, sep = ";")

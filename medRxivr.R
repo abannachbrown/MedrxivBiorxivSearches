@@ -63,7 +63,8 @@ mx_results <- mx_search(data = medrxiv_data,
   deduplicate = TRUE)
 
 ### print the reuslts to a csv file
-write.csv(mx_results, file="medrxivResults.csv")
+## csv2 for german excel that has ';' as seperator
+write.csv2(mx_results, file="medrxivResults.csv", row.names = F, sep = ";")
 
 ## Download the results PDFs - does not work with biorxiv DOIs as preffix URL is specified to medrxiv.org
 mx_download(mx_results, directory = "pdf/", create = TRUE)
